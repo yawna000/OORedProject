@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+Map DiningRoom{
+Specify=>Allergy
+Order=>Food
+Eat=>Food
+Pay => Money
+}
+
+Map GUI{
+Modifies=>Menu
+}
+
+map Kitchen{
+Receives => Order
+}
+
+object Server{
+Serves Food
+}
+
+DiningRoom::Specify -----> GUI : Specifies Allergy
+GUI::Modifies ---> DiningRoom:Returns with modified menu
+DiningRoom::Order --> Kitchen : Orders Food
+Kitchen --> Server:Sends Food
+Server ----> DiningRoom:Serves Food
+@enduml
