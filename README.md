@@ -6,11 +6,20 @@
 Description
 
 Features:
+ - [x] Menu
+ - [ ] Add Order
+ - [ ] Remove Order
+ - [ ] Allergy Warning
+ - [ ] Pay order
+ - [ ] GUI
 
 The goal of this project is to......
 
-Members:
-Emmanuel Renaldo C. Malino
-Allana A. Navajas
-
  - - - -
+ 
+<details>
+  <summary>Members</summary>
+ 
+  <p>Emmanuel Renaldo C. Malino</p>
+  <p>Allana A. Navajas</p>
+</details>
