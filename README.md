@@ -7,9 +7,8 @@ This simple Restaurant Management System project is not for commercial use and i
 
 Features:
 
-   -Database
-   
-   -GUI
+ * Database
+ * GUI
 
  - - - -
  
