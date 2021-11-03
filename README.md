@@ -12,10 +12,19 @@ Features:
 
  - - - -
  
+Members:
+ 
+ - Emmanuel Renaldo C. Malino
+ - Allana A. Navajas
+
+ - - - -
 <details>
- 
-  <summary>Members</summary>
- 
-  <p>Emmanuel Renaldo C. Malino</p>
-  <p>Allana A. Navajas</p>
+<summary> References: </summary>
+
+[Food Ordering System](https://itsourcecode.com/free-projects/python-projects/python-code-for-food-ordering-system/)
+
+[2021 Restaurant Management](https://itsourcecode.com/free-projects/python-projects/restaurant-management-system-project-in-python-with-source-code/)
+
+[Restaurant Management System in python(tkinter)](https://github.com/amark23/Restaurant-Management-System-Python-/blob/master/s1.png)
+
 </details>
