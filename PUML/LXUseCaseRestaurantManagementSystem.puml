@@ -1,0 +1,29 @@
+@startuml
+
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+:Customer: <<Human>>
+:GUI: <<System>>
+:Database: <<System>>
+usecase "Gets Necessary Data"
+usecase "Allergic to Seafood"
+usecase "Allergic to Peanut"
+usecase "Allergic to Dairy"
+usecase "Prints Menu without Dairy"
+usecase "Prints Menu without Peanut"
+usecase "Prints Menu without Seafood"
+
+Customer --> (Allergic to Peanut)
+Customer --> (Allergic to Seafood)
+Customer --> (Allergic to Dairy)
+(Allergic to Dairy) --> GUI
+(Allergic to Peanut) --> GUI
+(Allergic to Seafood) --> GUI
+GUI <-> Database
+GUI --> (Prints Menu without Seafood)
+GUI --> (Prints Menu without Peanut)
+GUI --> (Prints Menu without Dairy)
+
+
+@enduml
