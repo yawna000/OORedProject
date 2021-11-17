@@ -1,0 +1,55 @@
+@startuml
+
+skinparam style strictuml
+skinparam backgroundColor tomato
+skinparam class{
+BackgroundColor white
+BorderColor maroon
+FontColor maroon
+ArrowColor maroon
+FontStyle bold
+AttributeIconSize 0
+}
+skinparam object{
+BackgroundColor white
+BorderColor maroon
+FontColor maroon
+ArrowColor maroon
+FontStyle bold
+AttributeIconSize 0
+}
+hide empty members
+
+Start -->User
+
+User -- GUI
+GUI ---> Database
+GUI - Menu
+Database -> Menu
+annotation Start{}
+
+class Database {
++ItemList
++ItemPrice
++AllergyWarning
++Filters()
+}
+
+class GUI{
++Allergy: Checkboxes
++Reads allergy()
++Prints Menu()
+}
+
+object Menu{
++Appetizer
++MainCourse
++Dessert
++Beverages
+}
+
+class User {
++Specify allergy()
+}
+
+@enduml
