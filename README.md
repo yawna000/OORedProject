@@ -19,7 +19,8 @@ Members:
 
  - - - -
 Code Reference:
-![https://github.com/yawna000/OORedProject/blob/main/PUML/LXRequirementRestaurantManagementSystem.png?raw=true]
+
+![](https://github.com/yawna000/OORedProject/blob/main/PUML/LXRequirementRestaurantManagementSystem.png?raw=true)
  - - - -
 <details>
 <summary> References: </summary>
