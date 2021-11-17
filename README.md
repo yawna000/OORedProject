@@ -26,5 +26,5 @@ Members:
 [2021 Restaurant Management](https://itsourcecode.com/free-projects/python-projects/restaurant-management-system-project-in-python-with-source-code/)
 
 [Restaurant Management System in python(tkinter)](https://github.com/amark23/Restaurant-Management-System-Python-/blob/master/s1.png)
-
+https://github.com/yawna000/OORedProject/blob/main/PUML/LXRequirementRestaurantManagementSystem.png?raw=true
 </details>
