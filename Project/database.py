@@ -1,3 +1,4 @@
+from tkinter import messagebox
 import sqlite3
 
 
@@ -16,6 +17,7 @@ class Database:
                     cost integer,
                     UNIQUE(name)
                 );""")
+
     c.execute("""CREATE TABLE IF NOT EXISTS Main_Dish(
                     allergen1 string,
                     allergen2 string,
@@ -23,6 +25,7 @@ class Database:
                     cost integer,
                     UNIQUE(name)
                     );""")
+
     c.execute("""CREATE TABLE IF NOT EXISTS Desserts(
                     allergen1 string,
                     allergen2 string,
@@ -30,6 +33,7 @@ class Database:
                     cost integer,
                     UNIQUE(name)
                     );""")
+
     c.execute("""CREATE TABLE IF NOT EXISTS Beverages(
                     allergen1 string,
                     allergen2 string,
@@ -37,6 +41,7 @@ class Database:
                     cost integer,
                     UNIQUE(name)
                     );""")
+
     c.execute("""CREATE TABLE IF NOT EXISTS Bill(
                     name string,
                     cost integer
@@ -76,105 +81,51 @@ class Database:
         conn.commit()
         conn.close()
 
-    def order1(self, entry_box1, cost_box1):
+    def order(self, entry_box, cost_box):
+        try:
+            if str(entry_box.get()) != "" or int(cost_box.get()) != 0:
+                # connects the database
+                conn = sqlite3.connect("Restaurant.db")
 
+                # instance which invokes methods that execute SQL Statements
+                c = conn.cursor()
+
+                c.execute("INSERT INTO Bill VALUES(:name, :cost)",
+                          {
+                              "name": entry_box.get(),
+                              "cost": cost_box.get()})
+                conn.commit()
+                conn.close()
+            else:
+                messagebox.showerror("Error", "Cannot Accept Empty Values")
+        except ValueError:
+            messagebox.showerror("Error", "Cannot Accept Empty Value")
+
+    def print_bill(self, root):
         # connects the database
         conn = sqlite3.connect("Restaurant.db")
 
         # instance which invokes methods that executes SQL Statements
         c = conn.cursor()
-
-        c.execute("INSERT INTO Bill VALUES(:name, :cost)",
-                  {
-                                   "name": entry_box1.get(),
-                                   "cost": cost_box1.get()
-                    })
-        conn.commit()
-        conn.close()
-
-    def order2(self, entry_box2, cost_box2):
-
-        # connects the database
-        conn = sqlite3.connect("Restaurant.db")
-
-        # instance which invokes methods that executes SQL Statements
-        c = conn.cursor()
-
-        c.execute("INSERT INTO Bill VALUES(:name, :cost)",
-                  {
-                      "name": entry_box2.get(),
-                      "cost": cost_box2.get()
-                  })
-        conn.commit()
-        conn.close()
-
-    def order3(self, entry_box3, cost_box3):
-
-        # connects the database
-        conn = sqlite3.connect("Restaurant.db")
-
-        # instance which invokes methods that executes SQL Statements
-        c = conn.cursor()
-
-        c.execute("INSERT INTO Bill VALUES(:name, :cost)",
-                  {
-                      "name": entry_box3.get(),
-                      "cost": cost_box3.get()
-                  })
-        conn.commit()
-        conn.close()
-
-    def order4(self, entry_box4, cost_box4):
-
-        # connects the database
-        conn = sqlite3.connect("Restaurant.db")
-
-        # instance which invokes methods that executes SQL Statements
-        c = conn.cursor()
-
-        c.execute("INSERT INTO Bill VALUES(:name, :cost)",
-                  {
-                      "name": entry_box4.get(),
-                      "cost": cost_box4.get()
-                  })
-        conn.commit()
-        conn.close()
-
-    def order5(self, entry_box5, cost_box5):
-
-        # connects the database
-        conn = sqlite3.connect("Restaurant.db")
-
-        # instance which invokes methods that executes SQL Statements
-        c = conn.cursor()
-
-        c.execute("INSERT INTO Bill VALUES(:name, :cost)",
-                  {
-                      "name": entry_box5.get(),
-                      "cost": cost_box5.get()
-                  })
-        conn.commit()
-        conn.close()
-
-    def print_bill(self):
-        # connects the database
-        conn = sqlite3.connect("Restaurant.db")
-
-        # instance which invokes methods that executes SQL Statements
-        c = conn.cursor()
-
-        c.execute("DELETE from Bill")
+        prompt = messagebox.askquestion("Checkout?", "Are you sure?")
+        if prompt == "yes":
+            c.execute("DELETE from Bill")
+            root.destroy()
+        else:
+            messagebox.showinfo('Return', 'You will now return to the application screen')
         conn.commit()
         conn.close()
 
     def remove(self, entry_box5):
-        # connects the database
-        conn = sqlite3.connect("Restaurant.db")
+        try:
+            # connects the database
+            conn = sqlite3.connect("Restaurant.db")
+            # instance which invokes methods that executes SQL Statements
+            c = conn.cursor()
+            c.execute("DELETE from Bill WHERE oid= " + entry_box5.get())
 
-        # instance which invokes methods that executes SQL Statements
-        c = conn.cursor()
+            conn.commit()
+            conn.close()
 
-        c.execute("DELETE from Bill WHERE oid= " + entry_box5.get())
-
-        conn.commit()
-        conn.close()
+        except:
+            messagebox.showerror("Error", "Cannot Accept Empty Value")
