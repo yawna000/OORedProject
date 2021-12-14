@@ -27,6 +27,7 @@ GUI ---> Database
 GUI - Menu
 Database -> Menu
 annotation Start{}
+GUI --> End
 
 class Database {
 +ItemList
@@ -36,9 +37,10 @@ class Database {
 }
 
 class GUI{
-+Allergy: Checkboxes
++Allergy: Seafood, Nuts, Dairy
 +Reads allergy()
 +Prints Menu()
++Prints Bill()
 }
 
 object Menu{
