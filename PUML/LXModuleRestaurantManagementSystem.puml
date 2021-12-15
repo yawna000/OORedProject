@@ -1,0 +1,94 @@
+@startuml
+'https://plantuml.com/object-diagram
+skinparam classAttributeIconSize 0
+skinparam backgroundColor tomato
+skinparam class{
+BackgroundColor white
+BorderColor maroon
+FontColor maroon
+ArrowColor maroon
+FontStyle bold
+AttributeIconSize 0
+}
+top to bottom direction
+hide circle
+hide empty members
+
+object Bill{
++Food Name
++Price
++Total
+}
+
+map Appetizers{
+Nuts => None
+None => None
+None => None
+Seafood => None
+Dairy => None
+Dairy => None
+}
+
+map MainDish{
+None => None
+Seafood => None
+None => None
+Seafood => None
+Dairy => None
+None => None
+}
+
+map Desserts{
+Dairy => Nuts
+None => None
+None => None
+None => None
+None => None
+None => None
+}
+
+map Beverages{
+Dairy => Nuts
+None => None
+None => None
+None => None
+None => None
+None => None
+}
+
+class GUI{
++Menu:str, int
++Specifies Allergy()
++Order()
++Print Bill()
+}
+
+class Database{
++Modifies Menu()
+}
+
+diamond allergy
+diamond order
+User --> GUI::Specifies
+Beverages <-u-> order
+MainDish <-u-> order
+Desserts <-u-> order
+Appetizers <-u-> order
+GUI::Specifies -l-> allergy
+allergy ---> User: Reiterates the\n picking process
+Database::Modifies <-- allergy : Proceeds to Database
+Menu <-- Database::Modifies
+Menu <--l-> order
+Menu --> GUI::Order
+GUI::Print -> Bill
+Bill -> Pay
+Pay -> Leave
+note right of order: Clears matching allergy
+note right of User: Start
+note bottom of Leave: End
+note bottom of Appetizers: Customer orders\nfrom Appetizers
+note bottom of MainDish: Customer orders\nfrom MainDish
+note bottom of Desserts: Customer orders\nfrom Desserts
+note bottom of Beverages: Customer orders\nfrom Beverages
+note bottom of GUI: After ordering,\nprints bill
+@enduml
