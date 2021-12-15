@@ -1,0 +1,4 @@
+1. Download all of the python scripts
+2. Make sure to download all of the needed python modules (tkinter and sqlite3)
+2.1.(Optional if lacking python modules) Refer to this link https://www.tutorialspoint.com/how-to-install-tkinter-in-python
+3. Run RMS to run the Restaurant Management System.
