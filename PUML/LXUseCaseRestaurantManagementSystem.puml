@@ -2,28 +2,54 @@
 
 skinparam actorStyle awesome
 skinparam packageStyle rectangle
+skinparam backgroundColor tomato
+skinparam object{
+BackgroundColor white
+BorderColor maroon
+FontColor maroon
+ArrowColor business
+FontStyle bold
+AttributeIconSize 0
+}
+hide empty members
+
+skinparam actorStyle awesome
 
 :Customer: <<Human>>
 :GUI: <<System>>
 :Database: <<System>>
-usecase "Gets Necessary Data"
-usecase "Allergic to Seafood"
-usecase "Allergic to Peanut"
-usecase "Allergic to Dairy"
-usecase "Prints Menu without Dairy"
-usecase "Prints Menu without Peanut"
-usecase "Prints Menu without Seafood"
 
-Customer --> (Allergic to Peanut)
-Customer --> (Allergic to Seafood)
-Customer --> (Allergic to Dairy)
-(Allergic to Dairy) --> GUI
-(Allergic to Peanut) --> GUI
-(Allergic to Seafood) --> GUI
-GUI <-> Database
-GUI --> (Prints Menu without Seafood)
-GUI --> (Prints Menu without Peanut)
-GUI --> (Prints Menu without Dairy)
+usecase "Order"
+usecase "Prints Menu without Allergy"
+usecase "Pay"
+usecase "Prints Bill"
+usecase "End"
 
+package Menu {
+    usecase "Appetizers"
+    usecase "Main Dish"
+    usecase "Dessert"
+    usecase "Beverage"
+}
+
+Order --> (GUI)
+
+Pay --> End
+
+(Start) --> Customer
+Customer --> Order
+Order <-- (Prints Menu without Allergy)
+
+Database <--> (GUI)
+Database <--> Menu
+
+(Prints Menu without Allergy) <-- (GUI)
+
+(Prints Menu without Allergy) --> (Prints Bill)
+(Prints Bill) --> Pay
+
+note top of (GUI): Gets Necessary Data
+
+note left of Menu: Allergen:\nSeafood\nNuts\nDairy
 
 @enduml
