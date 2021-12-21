@@ -19,7 +19,7 @@ Members:
 
  - - - -
  
-## :red_circle: Click here for [Demonstration Video](*https://drive.google.com/file/d/1tT7uWXHypAe0SjHKPuP7YQ0F0FmVkIDb/view?usp=sharing* "Demonstration") :point_left: via YouTube ##
+## :red_circle: Click here for [Demonstration Video](https://drive.google.com/file/d/1tT7uWXHypAe0SjHKPuP7YQ0F0FmVkIDb/view?usp=sharing "Demonstration") :point_left: via YouTube ##
 
 Code Reference:
 
